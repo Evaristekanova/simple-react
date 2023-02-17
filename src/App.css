@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600&family=Poppins:wght@100;200;300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600&family=Poppins:wght@100;200;300;400;500&display=swap");
 :root {
   --white: #fff;
   --green: #27ae60;
@@ -17,10 +17,79 @@
 
 body {
   font-size: 18px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   color: #fff;
 }
-.nav-container{
+#root {
+  position: relative;
+  padding: 0px 70px;
+}
+.humberger-icon {
+  position: fixed;
+  height: 30px;
+  width: 30px;
+  width: 100%;
+  top: 10px;
+  left: 10px;
+  color: var(--green);
+  font-size: 40px;
+  z-index: 100;
+}
+.link {
+  color: var(--green);
+}
+.reponsive-nav {
+  width: 0%;
+  display: flex;
+  background-color: var(--dark-blue);
+  flex-direction: column;
+  gap: 10px;
+}
+.reponsive-nav li {
+  list-style: none;
+}
+.reponsive-nav,
+li,
+Link {
+  color: var(--white);
+  text-decoration: none;
+  list-style: none;
+  display: block;
+  padding: 5px 10px;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+}
+.nav-container {
+  display: none;
+  position: absolute;
+  padding: 15px 10px;
+  left: -100%;
+  width: 20%;
+  height: 95vh;
+  background-color: var(--dark-blue);
+  transition: 0.5s all ease-in-out;
+}
+.active {
+  display: block;
+  left: 0px;
+  display: block;
+  position: absolute;
+  padding: 15px 10px;
+  width: 20%;
+  height: 94.8vh;
+  background-color: var(--dark-blue);
+  animation: slide 0.5s all ease-in-out;
+}
+@keyframes slide {
+  0% {
+    left: -100%;
+}
+  100% {
+    left: 0px;
+  }
+}
+
+/* .nav-container{
   height: 55px;
   width: 65%;
   display: flex;
@@ -32,7 +101,7 @@ body {
   margin-bottom: 20px;
   border-radius: 0px 0px 0px 20px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
-}
+} */
 /* .navbar {
   padding: 5px 20px;
   width: 100%;
@@ -41,10 +110,13 @@ body {
   justify-content: space-evenly;
   align-items: center;
 } */
-.navbar, li {
+.navbar,
+li {
   list-style: none;
 }
-.navbar, li, Link {
+.navbar,
+li,
+Link {
   list-style: none;
   text-decoration: none;
   padding: 15px 15px;
@@ -60,7 +132,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 85vh;
-  /* max-width: 270px; */
   width: 100%;
 }
 /* .signup {
@@ -102,23 +173,106 @@ button {
   border-radius: 5px;
   border: none;
   font-size: 18px;
-  color: coral;
+  color: var(--white);
+  background-color: var(--dark-green);
 }
+/* .section {
+  padding: 60px 70px;
+} */
+/* ===blog list === */
 .blogs-block {
-  margin-top: 40px;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-gap: 40px;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
   align-items: center;
   min-height: 80vh;
+  /* padding: 20px 50px; */
 }
 .blog {
-  width: 28%;
+  margin-top: 40px;
+  /* width: 27%; */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: var(--gray-color);
+  border-radius: 15px;
+}
+.blog img {
+  height: 37vh;
+  border-radius: 15px;
+}
+/* -------------blog section------------------ */
+.single-blog-page-container {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.blog-list-container {
+  width: 35%;
+  margin-top: 40px;
+}
+.sinlge-blog-and-message {
+  margin-top: 40px;
+  width: 60%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.blogs-block-single {
+  width: 100%;
+  /* max-height: 200vh; */
+  /* display: flex;
+    flex-direction: row;
+    justify-content: space-around; */
+}
+.blog-single {
+  width: 100%;
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
   background-color: var(--gray-color);
   border-radius: 15px;
+}
+.blog-single-list {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  background-color: var(--gray-color);
+  border-radius: 15px;
+}
+.article-list {
+  background-color: var(--gray-color);
+  /* max-height: 37vh; */
+  padding: 10px 15px;
+}
+
+/* ==== pop up message ==== */
+.snackbar {
+  position: fixed;
+  bottom: 10%;
+  background-color: rgb(117, 6, 6);
+  height: 7vh;
+  right: 5%;
+  min-width: 18em;
+  display: block;
+  border: 2px solid;
+  border-radius: 10px;
+  animation: appear 0.9s 1;
+}
+.snackbar_message {
+  font-size: 18px;
+  text-align: center;
+  padding: 2.7%;
+  transform: translateY(-10%);
+  color: var(--white);
+  text-shadow: 1px 2px 0px rgb(73, 6, 6);
 }

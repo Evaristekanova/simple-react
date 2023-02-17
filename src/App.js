@@ -1,44 +1,28 @@
 import "./App.css";
 import { Login } from "./login";
 import { SignUp } from "./components/signup";
-import { Blogs } from "./components/blogs"
-import { Link, Route, Routes } from "react-router-dom";
+import { Blogs } from "./components/blogs";
+import { SingleBlogPage } from "./components/singleblogPage";
+import { Navbar } from "./components/navbar";
+import {Route, Routes } from "react-router-dom";
 function App() {
+  // const humberger = document.querySelector(".humberger-icon");
+  // const close = document.querySelector(".close-icon");
+  // const nav = document.querySelector(".responsive-nav");
+  // humberger.addEventListener("click", () => {
+  //   nav.classList.add("open");
+  // });
+  // close.addEventListener("click", () => {
+  //   nav.classList.remove("open");
+  // });
   return (
     <>
-      <div className="nav-container">
-        <nav className="navbar">
-          <li>
-            <Link className="nav-link" to="/signup">
-              Login
-            </Link>
-          </li>
-        </nav>{" "}
-        <li>
-          <Link className="nav-link" to="/">
-            Signup
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/blog">
-            Blogs
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/blog">
-            My work
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/blog">
-            Contact
-          </Link>
-        </li>
-      </div>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/blog" element={<Blogs />} />
+        <Route path="/singleBlogPage" element={<SingleBlogPage />} />
       </Routes>
     </>
   );
