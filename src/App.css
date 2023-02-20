@@ -70,7 +70,7 @@ Link {
   transition: 0.5s all ease-in-out;
 }
 .active {
-  display: block;
+  position: fixed;
   left: 0px;
   display: block;
   position: absolute;
@@ -227,11 +227,7 @@ button {
   justify-content: space-around;
 }
 .blogs-block-single {
-  width: 100%;
-  /* max-height: 200vh; */
-  /* display: flex;
-    flex-direction: row;
-    justify-content: space-around; */
+  width: 60%;
 }
 .blog-single {
   width: 100%;
@@ -240,6 +236,9 @@ button {
   margin-bottom: 30px;
   background-color: var(--gray-color);
   border-radius: 15px;
+}
+.blog-title{
+  color: var(--green);
 }
 .blog-single-list {
   /* width: 100%; */
