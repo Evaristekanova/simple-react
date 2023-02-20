@@ -34,7 +34,7 @@ export const Blogs = () => {
                     <Link
                       onClick={(e) => {setSearchParams({ id: el._id })}}
                       className="link"
-                      to={"/singleBlogPage"}
+                      to={"/blog?id=" + el._id}
                     >
                       read more
                     </Link>
