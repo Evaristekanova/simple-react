@@ -18,7 +18,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
+      <Routes basename="/simple-react">
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/blog" element={<Blogs />} />
