@@ -1,19 +1,41 @@
+import autoAnimate from "@formkit/auto-animate";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { AiFillCloseCircle } from "react-icons/ai";
-import { useState } from "react";
-export const Navbar = () => {
+import { useRef, useState, useEffect } from "react";
+const Navbar = () => {
   const [showNav, setShowNav] = useState(false);
-  //   const { showIcon, setShowIcon } = useState(false);
+  const parentRef = useRef()
+  // autoAnimate(parentRef, {
+  //   duration: 300,
+  //   easing: "ease-in-out",
+  //   direction: "alternate",
+  //   iterations: 1,
+  //   fill: "forwards",
+  //   keyframes: [
+  //     { transform: "translateX(0)" },
+  //     { transform: "translateX(100%)" },
+  //   ],
+  // })
+    useEffect(() => {
+      if (parentRef.current) {
+        autoAnimate(parentRef.current);
+      }
+    }, [parentRef]);
+
+
   const showNavHandler = () => setShowNav(!showNav);
   return (
     <>
       <span className="humberger-icon">
-        <FaBars onClick={showNavHandler} />
+        {showNav ? (
+          <FaBars onClick={showNavHandler} />
+        ) : (
+          <AiFillCloseCircle onClick={showNavHandler} />
+        )}
       </span>
-      <div className={showNav ? "active" : "nav-container"}>
+      {!showNav && <div className={!showNav ? "active" : "nav-container"}>
         <nav className="responsive-nav">
-          <span className="close-icon"><AiFillCloseCircle /></span>
           <li>
             <Link className="nav-link" to="/signup">
               Login
@@ -40,7 +62,8 @@ export const Navbar = () => {
             </Link>
           </li>
         </nav>
-      </div>
+      </div>}
     </>
   );
 };
+export default Navbar;

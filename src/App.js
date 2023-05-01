@@ -1,30 +1,23 @@
 import "./App.css";
-import { Login } from "./login";
+import Login from "./login";
 import { SignUp } from "./components/signup";
 import { Blogs } from "./components/blogs";
 import { SingleBlogPage } from "./components/singleblogPage";
-import { Navbar } from "./components/navbar";
-import {Route, Routes } from "react-router-dom";
+import Navbar from "./components/navbar";
+// import Expander from "./components/Expander";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 function App() {
-  // const humberger = document.querySelector(".humberger-icon");
-  // const close = document.querySelector(".close-icon");
-  // const nav = document.querySelector(".responsive-nav");
-  // humberger.addEventListener("click", () => {
-  //   nav.classList.add("open");
-  // });
-  // close.addEventListener("click", () => {
-  //   nav.classList.remove("open");
-  // });
   return (
-    <>
+    <Router>
       <Navbar />
-      <Routes basename="/simple-react">
-        <Route path="/" element={<Login />} />
+      <Routes>
+        <Route exact path="/" element={<Login />} />
+        {/* <Route path="/slider" element={<Expander />} /> */}
         <Route path="/signup" element={<SignUp />} />
         <Route path="/blog" element={<Blogs />} />
         <Route path="/singleBlogPage" element={<SingleBlogPage />} />
       </Routes>
-    </>
+    </Router>
   );
 }
 

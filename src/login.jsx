@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Popup } from "./components/popup";
-import axios from "axios";
-export const Login = () => {
+// import axios from "axios";
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -100,3 +100,5 @@ export const Login = () => {
     </>
   );
 };
+
+export default Login;
